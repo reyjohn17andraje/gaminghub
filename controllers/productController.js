@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const Product = require("../models/Product");
+const Product = require("../models/productModel");
 const auth = require("../auth");
 
 module.exports.addproduct = (req, res) => {
@@ -126,7 +126,7 @@ module.exports.archiveproduct = (req, res) => {
     }
 };
 
-module.exports.activateproduc = (req, res) => {
+module.exports.activateproduct = (req, res) => {
     let updateActiveField = {
         isAvailable: true
     }

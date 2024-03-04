@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
-const Cart = require("../models/Cart");
-const User = require("../models/User");
-const Product = require("../models/Product");
+const Cart = require("../models/cartModel");
+const User = require("../models/userModel");
+const Product = require("../models/productModel");
 const auth = require("../auth");
 
 

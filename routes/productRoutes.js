@@ -1,6 +1,6 @@
 const express = require("express");
 const productController = require("../controllers/productController");
-const Product = require("../models/Product");
+const Product = require("../models/productModel");
 const auth = require("../auth");
 const { verifyUser, verifyAdmin, isLoggedIn } = auth;
 

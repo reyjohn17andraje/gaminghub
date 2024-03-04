@@ -5,10 +5,10 @@ const { verifyUser, verifyAdmin, isLoggedIn } = auth;
 
 const router = express.Router();
 
-router.post("/checkout", verify, orderController.checkout);
+router.post("/checkout", verifyUser, orderController.checkout);
 
-router.get("/myorders", verify, orderController.myorders);
+router.get("/myorders", verifyUser, orderController.myorders);
 
-router.get("/allorders", verify, verifyAdmin, orderController.allorders);
+router.get("/allorders", verifyUser, verifyAdmin, orderController.allorders);
 
 module.exports = router;

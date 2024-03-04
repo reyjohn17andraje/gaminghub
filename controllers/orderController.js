@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
-const Order = require("../models/Order");
-const Cart = require('../models/Cart');
-const User = require('../models/User');
+const Order = require("../models/orderModel");
+const Cart = require('../models/cartModel');
+const User = require('../models/userModel');
 const auth = require("../auth");
 
 module.exports.checkout = (req, res) => {
