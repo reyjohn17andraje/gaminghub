@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extened:true}));
 app.use(cors());
 
-mongoose.connect("mongodb+srv://reyjohnandraje2002:admin@cluster0.6ki5z6l.mongodb.net/vergie_store_api?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://reyjohnandraje2002:admin@cluster0.6ki5z6l.mongodb.net/gaming_hub?retryWrites=true&w=majority");
 
 mongoose.connection.once('open', () => console.log('You are now connected to MongoDB Atlas.'));
 
