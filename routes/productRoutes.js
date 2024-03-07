@@ -27,6 +27,6 @@ router.post('/searchbypricerange', productController.searchbypricerange);
 
 router.post('/searchbycategory', productController.searchbycategory);
 
-router.post('/deleteproduct', productController.deleteproduct);
+router.delete('/deleteproduct', productController.deleteproduct);
 
 module.exports = router;
