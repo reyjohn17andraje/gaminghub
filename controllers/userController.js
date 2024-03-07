@@ -124,3 +124,43 @@ module.exports.updatepassword = async (req, res) => {
         return res.status(500).json({ message: 'Internal Server Error' });
     }
 };
+
+module.exports.changetoadmin = async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User Not Found' });
+        }
+
+        user.isAdmin = 'Admin';
+
+        const updatedUser = await user.save();
+
+        return res.status(200).json({ message: 'User is now an admin' });
+    } catch (err) {
+        console.error('Internal Server Error:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+module.exports.removeasadmin = async (req, res) => {
+    try {
+        const userId = req.params.userId; 
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: 'User Not Found' });
+        }
+
+        user.isAdmin = 'Non-Admin';
+
+        const updatedUser = await user.save();
+
+        return res.status(200).json({ message: 'Admin privileges removed' });
+    } catch (err) {
+        console.error('Internal Server Error:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+};

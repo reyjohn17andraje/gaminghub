@@ -191,3 +191,22 @@ module.exports.searchbycategory = (req, res) => {
             res.status(500).json({ error: 'Internal Server Error' });
         });
 };
+
+module.exports.deleteproduct = (req, res) => {
+    const productId = req.params.productId;
+
+    Product.findByIdAndDelete(productId)
+        .then(deletedProduct => {
+            if (!deletedProduct) {
+                return res.status(404).send({ error: 'Product not found' });
+            }
+            return res.status(200).send({
+                message: 'Product deleted successfully',
+                deletedProduct: deletedProduct
+            });
+        })
+        .catch(err => {
+            console.error("Error in deleting a product: ", err);
+            return res.status(500).send({ error: 'Internal Server Error' });
+        });
+};
