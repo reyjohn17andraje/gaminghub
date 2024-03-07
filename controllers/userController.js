@@ -128,13 +128,11 @@ module.exports.updatepassword = async (req, res) => {
 module.exports.changetoadmin = async (req, res) => {
     try {
         const userId = req.params.userId;
-        const user = await User.findById(userId);
+        const user = await User.findByIdAndUpdate(userId, {isAdmin: true});
 
         if (!user) {
             return res.status(404).json({ message: 'User Not Found' });
         }
-
-        user.isAdmin = 'Admin';
 
         const updatedUser = await user.save();
 
@@ -148,13 +146,11 @@ module.exports.changetoadmin = async (req, res) => {
 module.exports.removeasadmin = async (req, res) => {
     try {
         const userId = req.params.userId; 
-        const user = await User.findById(userId);
+        const user = await User.findByIdAndUpdate(userId, {isAdmin: false});
 
         if (!user) {
             return res.status(404).json({ message: 'User Not Found' });
         }
-
-        user.isAdmin = 'Non-Admin';
 
         const updatedUser = await user.save();
 
